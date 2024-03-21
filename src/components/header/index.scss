@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    font-size: medium;
+    font-weight: bold;
+    height: 40px;
+    color: #fff;
+    background-color: lightgreen;
+    line-height: 40px;
+    a {
+        margin-right: 15px;
+        text-decoration: none;
+    }
+}
