@@ -7,6 +7,7 @@ import routes from '@/router'
 export default function loadData(currentLocation, store) {
     if (currentLocation === '/favicon.ico') return
     const matches = matchRoutes(routes, currentLocation);
+    console.log('matches', matches)
     const promises = []
     for (const match of matches) {
         if (match.route.element?.loadData) {

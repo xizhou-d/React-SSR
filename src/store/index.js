@@ -8,6 +8,10 @@ const reducer = combineReducers({
     movie: movieReducer,
 });
 
+// 为什么封装一个函数来返回一个 store 呢？
+// 因为如果不这样做，假如说 A 同学访问了一次电影业，初始化了 store 的数据。
+// 此时，B 同学也来访问了 首页，但是 A 访问 电影业的时候已经初始化了 store，并且通过 window.pageDatas 同步到客户端了，就会导致 B 同学访问 首页的时候，依然携带电影数据，这是不对的。
+// 因此，这里这么处理，就是为了，每次请求都新建一个 干净的 store，互相不影响
 function makeStore() {
     let store;
 

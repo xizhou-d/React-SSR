@@ -9,7 +9,7 @@ import loadData from './loadData'
 
 export default async (req, res) => {
     let store = makeStore()
-    const context = {}
+    const context = {a: 1, b: 2}
 
     // 加载数据到仓库
     // 调用对应组件 (根据路由匹配到的组件) 的 loadData 
@@ -20,9 +20,10 @@ export default async (req, res) => {
         <Provider store={store}>
             <StaticRouter location={req.url} context={context}>
                 <App context={context} />
-            </StaticRouter> 
+            </StaticRouter>
         </Provider>
     )
+    console.log('Home', HomeComponentHtml)
     const html = getHTML(HomeComponentHtml, req.url, store)
     res.send(html)
 }
